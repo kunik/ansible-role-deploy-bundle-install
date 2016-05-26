@@ -3,6 +3,7 @@ galaxy_info:
   author: Taras Kunch
   description: Install ruby gems to shared bundle dir
   company: Rebbix
+  license: license (BSD)
   min_ansible_version: 1.4
   platforms:
   - name: Ubuntu
@@ -12,3 +13,4 @@ galaxy_info:
   - system
   - web
   - deployment
+  dependencies: []
