@@ -1,0 +1,7 @@
+#Install ruby gems to shared bundle dir
+---
+
+- name: install ruby gems
+  command: >
+    bundle install --gemfile {{ deploy_release_dir }}/Gemfile --path {{ deploy_bundle_dir }} --deployment --quiet --without development test
+    chdir={{ deploy_release_dir }}
