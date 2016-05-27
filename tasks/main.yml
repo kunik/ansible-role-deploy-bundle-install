@@ -3,5 +3,12 @@
 
 - name: install ruby gems
   command: >
+    bundle install --gemfile {{ deploy_release_dir }}/Gemfile --path {{ deploy_bundle_dir }}
+    chdir={{ deploy_release_dir }}
+  when: deploy_bundle_install is defined and deploy_bundle_install.environment is defined and deploy_bundle_install.environment == 'development'
+
+- name: install ruby gems
+  command: >
     bundle install --gemfile {{ deploy_release_dir }}/Gemfile --path {{ deploy_bundle_dir }} --deployment --quiet --without development test
     chdir={{ deploy_release_dir }}
+  when: deploy_bundle_install is undefined or deploy_bundle_install.environment is undefined or deploy_bundle_install.environment != 'development'
